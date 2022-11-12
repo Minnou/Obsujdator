@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <EditText
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        android:maxLength="64"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:minLines="1"
+        android:singleLine="true"
+        android:textColor="@color/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/text"
+        android:layout_width="366dp"
+        android:layout_height="408dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Text"
+        android:inputType="textMultiLine|textImeMultiLine"
+        android:maxLength="1024"
+        android:minHeight="48dp"
+        android:minLines="1"
+        android:singleLine="false"
+        android:textAlignment="textStart"
+        android:textColor="@color/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_text" />
+
+    <Button
+        android:id="@+id/discuss_button"
+        android:layout_width="115dp"
+        android:layout_height="52dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/message_background"
+        android:shadowColor="@color/teal_700"
+        android:text="Создать"
+        android:textColor="@color/text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

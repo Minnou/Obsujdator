@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.databinding.DiscussionBinding;
 import java.util.List;
 
 public class DiscussionViewAdapter extends RecyclerView.Adapter<DiscussionViewAdapter.ViewHolder> {
@@ -40,10 +39,12 @@ public class DiscussionViewAdapter extends RecyclerView.Adapter<DiscussionViewAd
         DiscussionClass discussion = mValues.get(position);
         holder.mTitle.setText(discussion.getTitle());
         holder.mText.setText(discussion.getText());
+        holder.mId.setText(discussion.getId());
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, OpenDiscussion.class);
+                intent.putExtra("id", discussion.getId());
                 mContext.startActivity(intent);
             }
         });
@@ -62,13 +63,14 @@ public class DiscussionViewAdapter extends RecyclerView.Adapter<DiscussionViewAd
     // При этом RecyclerView создаёт ровно столько контейнеров, сколько нужно для отображения на экране.
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public final TextView mTitle, mText;
+        public final TextView mTitle, mText, mId;
         public final Button mButton;
         public ViewHolder(View itemView) {
             super(itemView);
             mTitle = itemView.findViewById(R.id.title);
             mText = itemView.findViewById(R.id.text);
             mButton = itemView.findViewById(R.id.discuss_button);
+            mId = itemView.findViewById(R.id.threadId);
         }
     }
 }

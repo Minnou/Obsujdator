@@ -32,7 +32,7 @@ public class ReplyViewAdapter extends RecyclerView.Adapter<ReplyViewAdapter.View
         ReplyClass reply = mValues.get(position);
         holder.mTitle.setText(reply.getTitle());
         holder.mText.setText(reply.getText());
-
+        holder.mId.setText(reply.getId());
     }
 
     /**
@@ -48,12 +48,13 @@ public class ReplyViewAdapter extends RecyclerView.Adapter<ReplyViewAdapter.View
     // При этом RecyclerView создаёт ровно столько контейнеров, сколько нужно для отображения на экране.
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public final TextView mTitle, mText;
+        public final TextView mTitle, mText, mId;
 
         public ViewHolder(ReplyBinding binding) {
             super(binding.getRoot());
             mTitle = binding.title;
             mText = binding.text;
+            mId = binding.replyId;
         }
     }
 }

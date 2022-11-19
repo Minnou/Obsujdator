@@ -1,9 +1,11 @@
 package com.example.myapplication;
 
 public class DiscussionClass {
+    private String id;
     private String title;
     private String text;
-    public DiscussionClass(String title, String text){
+    public DiscussionClass(String id, String title, String text){
+        this.id = id;
         this.title = title;
         this.text = text;
     }
@@ -22,5 +24,13 @@ public class DiscussionClass {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

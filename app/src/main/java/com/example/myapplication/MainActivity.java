@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //discussions.add(new DiscussionClass("22222","Меня хотят съесть пришельцы", "Помогите меня хотят съесть пришельцы"));
-        //discussions.add(new DiscussionClass("22222","Я очень вкусно поел", "А вы?"));
         rv.setAdapter(new DiscussionViewAdapter(mContext,discussions));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

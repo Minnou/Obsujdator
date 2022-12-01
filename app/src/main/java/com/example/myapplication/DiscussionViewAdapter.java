@@ -45,6 +45,8 @@ public class DiscussionViewAdapter extends RecyclerView.Adapter<DiscussionViewAd
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, OpenDiscussion.class);
                 intent.putExtra("id", discussion.getId());
+                intent.putExtra("title", discussion.getTitle());
+                intent.putExtra("text",discussion.getText());
                 mContext.startActivity(intent);
             }
         });

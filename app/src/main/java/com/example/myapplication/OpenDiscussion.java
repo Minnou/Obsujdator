@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class OpenDiscussion extends AppCompatActivity {
     String id;
+    ReplyClass originalPost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,9 @@ public class OpenDiscussion extends AppCompatActivity {
         if (extras != null)
         {
             id = extras.getString("id");
+            String OPtitle = extras.getString("title");
+            String OPtext = extras.getString("text");
+            originalPost = new ReplyClass(id,OPtitle,OPtext);
         }
         final String fId = id;
         ArrayList<ReplyClass> replies = new ArrayList<>();
@@ -26,6 +30,7 @@ public class OpenDiscussion extends AppCompatActivity {
         Thread receiveThread = new Thread(() -> {
             ArrayList<ReplyClass> temp = n.receiveRepliesFromServer(fId);
             int length = temp.size();
+            replies.add(originalPost);
             for (int i = 0; i < length; i++)
                 replies.add(temp.remove(0));
         });
@@ -46,6 +51,7 @@ public class OpenDiscussion extends AppCompatActivity {
                     replies.clear();
                     ArrayList<ReplyClass> temp = n.receiveRepliesFromServer(fId);
                     int length = temp.size();
+                    replies.add(originalPost);
                     for (int i = 0; i < length; i++)
                         replies.add(temp.remove(0));
                 });
